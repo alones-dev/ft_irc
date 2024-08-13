@@ -108,7 +108,7 @@ Client *Server::findClient(int fd)
 */
 Client *Server::findClientByNickname(std::string nickname)
 {
-    // std::cout << "\nfindClientByNickname\n";
+    removeNewlines(nickname);
     std::map<int, Client*>::iterator it = _clients.begin();
     for (it = _clients.begin(); it != _clients.end(); it++)
     {
@@ -153,10 +153,7 @@ bool Server::clientIsInChannelServ(std::string channelName, int clientFd)
 
 void Server::addClient(int fd, Client *client)
 {
-    // std::cout << "Avant ajout : " << _clients.size() << " clients" << std::endl;
     _clients[fd] = client;
-    // std::cout << "Client ajouté : " << client->getNickname() << " avec FD : " << fd << std::endl;
-    // std::cout << "Après ajout : " << _clients.size() << " clients" << std::endl;
 }
 
 void Server::onClientConnected(int fd)
@@ -194,14 +191,7 @@ void Server::initServer()
         exit(EXIT_FAILURE);
     }
 
-    int flags = fcntl(_serverFd, F_GETFL, 0);
-    if (flags == -1)
-	{
-        perror("fcntl");
-        close(_serverFd);
-        exit(EXIT_FAILURE);
-    }
-    if (fcntl(_serverFd, F_SETFL, flags | O_NONBLOCK) == -1)
+    if (fcntl(_serverFd, F_SETFL, O_NONBLOCK) == -1)
 	{
         perror("fcntl");
         close(_serverFd);
@@ -422,7 +412,6 @@ void Server::executeCommand(const std::string &buffer, Client& client)
     }
     else
         joincmd = joincmd + buffer;
-    // std::cout << "Cmd to execute: " << joincmd << std::endl;
     Command cmd(this, splitCmd[0]);
     cmd.execute(joincmd, client);
     joincmd.erase();

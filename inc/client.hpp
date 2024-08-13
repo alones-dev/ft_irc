@@ -18,7 +18,6 @@ class Client
 		bool _firstRegister;
 		bool _isOperator;
 		bool _isUnknown;
-		// bool _onChannel;
 	public:
 		Client();
 		~Client();

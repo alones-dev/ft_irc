@@ -69,12 +69,8 @@ bool Server::parsePass(std::string buffer, Client &client)
 {
 	std::string password = buffer.substr(5, buffer.length() - 5);
 	removeAfterWord(password);
-	// std::cout << "password: " << password << std::endl;
 	if (buffer.compare(0, 5, "PASS ") != 0)
-	{
-		// log("Error: bad informations", true);
 		return false;
-	}
 	else if (password.length() <= 0)
 	{
 		log("Error: need password", true);

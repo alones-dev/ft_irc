@@ -33,7 +33,6 @@ void Command::part(std::string buffer, Client *client)
 			return ;
 		}
 		
-		// std::cout << "User leave channel" << std::endl;
 		channel->removeClient(client->getFd());
 		std::string response = ":" + client->getNickname() + " PART " + channelName + "\r\n";
 		std::map<int, Client *> clients = channel->getClientsConnected();

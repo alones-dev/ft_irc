@@ -6,8 +6,6 @@
 #include "client.hpp"
 #include "channel.hpp"
 
-// class Server;
-
 class Command: public Server
 {
 	private:

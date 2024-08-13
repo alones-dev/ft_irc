@@ -20,7 +20,6 @@ void Command::nick(std::string buffer, Client &client)
     }
 	else
 	{
-        // removeNewlines(new_nick);
 		client.setNickname(new_nick);
         send_response(client.getFd(), "NICK", new_nick, "", _server->getServerName());
 		std::cout << "new nickname: " << client.getNickname();

@@ -112,7 +112,7 @@ void Command::mode(std::string buffer, Client &client)
 						{
 							std::string nickname = args[param];
 							param++;
-							Client *newOperator = findClientByNickname(nickname);
+							Client *newOperator = _server->findClientByNickname(nickname);
 							if (!newOperator || !channel->clientIsInChannel(newOperator->getFd()))
 							{
 								send_error(client.getFd(), 441, "MODE", "They aren't on that channel");

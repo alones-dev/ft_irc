@@ -171,7 +171,6 @@ bool Channel::clientIsInChannel(int fd)
 			return (true);
 		it++;
 	}
-	// std::cout << "Client not in channel" << std::endl;
 	return (false);
 }
 
@@ -184,7 +183,6 @@ bool Channel::clientIsInChannelInvited(int fd)
 			return (true);
 		it++;
 	}
-	// std::cout << "Client not in channel invited" << std::endl;
 	return (false);
 }
 
