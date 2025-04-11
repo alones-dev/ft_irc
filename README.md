@@ -1,11 +1,9 @@
-# ft_irc
-ft_irc is the first C++ project at 42School (after the c++ Piscine). 
+# **💬 ft_irc**
 
-The aim of the project is to create an IRC (Internet Relay Chat) server to manage client connections on a given port. Then, the project must also manage the creation of chat channels, the discussion between clients and other commands we've decided to handle (such as WHOIS, MOTD...).
+Welcome to **ft_irc**! 🚀 This is my very first C++ project at **42School**, following the **C++ Piscine**! 🎉  
+The goal of this project was to create a fully functional **IRC (Internet Relay Chat)** server that allows clients to connect, chat, and interact with each other in **real-time**. I worked on the **client-server connection** and most of the **commands** (like **WHOIS**, **MOTD**, and more), while collaborating with my teammates to handle the rest. Let’s chat, build, and have fun with **ft_irc**! 😄
 
-This is a three-person group project. I personally worked on the client connection to the server, which was then rewritten by my mate. Then I did most of the commands in the project. The rest was shared between my two mates.
-
-## Usage
+## 🔧 Usage
 **1. Clone the repository**
 ```
 git clone https://github.com/alones-dev/ft_irc.git
